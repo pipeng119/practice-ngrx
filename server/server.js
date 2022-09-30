@@ -1,6 +1,14 @@
 let express = require('express');
 let app = express();
 
+class HttpClientBody {
+  constructor(message, success, data) {
+    this.message = message;
+    this.success = success;
+    this.data = data;
+  }
+}
+
 //设置跨域访问
 app.all('*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -11,14 +19,18 @@ app.all('*', function (req, res, next) {
   next()
 });
 
-let data = {
+let data = [{
   name: '唐伯虎',
   age: 35,
-};
+}];
 
-let api = '/api/user';
-app.get(api, (req, res) => {
+let api = '/api';
+app.get(`${api}/user`, (req, res) => {
   res.send(data);
+});
+
+app.get(`${api}/todoList`, (req, res) => {
+  res.send(new HttpClientBody('请求成功', true, data));
 });
 
 //配置服务端口

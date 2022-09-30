@@ -1,4 +1,5 @@
 let express = require('express');
+let BIG_FOUR_WIT = require('./data/big-four-wit');
 let app = express();
 
 class HttpClientBody {
@@ -18,19 +19,14 @@ app.all('*', function (req, res, next) {
   res.header('Content-Type', 'application/json;charset=utf-8');
   next()
 });
-
-let data = [{
-  name: '唐伯虎',
-  age: 35,
-}];
-
+console.log(BIG_FOUR_WIT)
 let api = '/api';
 app.get(`${api}/user`, (req, res) => {
   res.send(data);
 });
 
 app.get(`${api}/todoList`, (req, res) => {
-  res.send(new HttpClientBody('请求成功', true, data));
+  res.send(new HttpClientBody('请求成功', true, BIG_FOUR_WIT));
 });
 
 //配置服务端口

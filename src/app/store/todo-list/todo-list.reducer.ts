@@ -7,13 +7,15 @@ import {
 
 export interface TodoListState {
   name: string;
-  date: string;
+  birthday: string;
+  biography: string
 }
 
 const initTodoList: TodoListState[] = [
   {
     name: '',
-    date: new Date().toLocaleDateString(),
+    birthday: '',
+    biography: ''
   },
 ];
 

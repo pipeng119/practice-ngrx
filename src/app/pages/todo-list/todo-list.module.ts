@@ -7,12 +7,14 @@ import { StoreModule } from '@ngrx/store';
 import { todoListReducer } from 'src/app/store/todo-list/todo-list.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoListEffects } from 'src/app/store/todo-list/todo-list.effect';
+import { NzShareModule } from 'src/app/nz-share.module';
 
 @NgModule({
   declarations: [TodoListComponent],
   imports: [
     CommonModule,
     TodoListRoutingModule,
+    NzShareModule,
     StoreModule.forFeature('todoList', todoListReducer),
     EffectsModule.forFeature([TodoListEffects]),
   ],

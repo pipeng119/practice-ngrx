@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4229 --open",
+    "server": "nodemon ./server/server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -20,6 +21,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ngrx/effects": "^14.3.1",
+    "@ngrx/store": "^14.3.1",
     "ng-zorro-antd": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
